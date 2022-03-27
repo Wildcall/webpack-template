@@ -1,0 +1,23 @@
+{
+  "name": "webpack-template",
+  "version": "1.0.0",
+  "description": "This is template for webpack",
+  "main": "index.js",
+  "author": "Nikolay Malygin",
+  "license": "MIT",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wildcall/webpack-template.git"
+  },
+  "keywords": [
+    "template",
+    "webpack"
+  ],
+  "bugs": {
+    "url": "https://github.com/Wildcall/webpack-template/issues"
+  },
+  "homepage": "https://github.com/Wildcall/webpack-template#readme"
+}
