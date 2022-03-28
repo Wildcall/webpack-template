@@ -1,8 +1,10 @@
 const path = require('path')
 const { merge } = require('webpack-merge');
 const { VueLoaderPlugin } = require('vue-loader')
+const { VuetifyLoaderPlugin } = require('vuetify-loader')
 
 const PATHS = {
+    entry: path.join(__dirname, 'src', 'index.js'),
     dist: path.join(__dirname, './dist'),
     src: path.join(__dirname, './src'),
     public: path.join(__dirname, 'public')
@@ -10,7 +12,7 @@ const PATHS = {
 
 const commonConfig  = {
     entry: {
-        app: './src/index.js'
+        app: PATHS.entry
     },
     output: {
         filename: '[name].js',
@@ -21,17 +23,38 @@ const commonConfig  = {
         rules: [
             {
                 test: /\.js$/,
+                exclude: '/node_modules/',
                 loader: 'babel-loader',
-                exclude: '/node_modules/'
             },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader'
             },
+            {
+                test: /\.s(c|a)ss$/,
+                use: [
+                  'vue-style-loader',
+                  'css-loader',
+                  {
+                    loader: 'sass-loader',
+                    options: {
+                      implementation: require('sass'),
+                      indentedSyntax: true
+                    },
+                    options: {
+                      implementation: require('sass'),
+                      sassOptions: {
+                        indentedSyntax: true
+                      },
+                    },
+                  },
+                ],
+            },
         ]
     },
     plugins: [
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new VuetifyLoaderPlugin()
       ]
 }
 

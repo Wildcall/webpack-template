@@ -1,14 +1,15 @@
 <template>
-  <p class="greeting">{{ greeting }}</p>
+  <div>
+    <h1>Hello world</h1>
+    <Main></Main>
+  </div>
 </template>
 
 <script>
+import Main from './component/Main.vue'
+
 export default {
-  data() {
-    return {
-      greeting: 'Hello World!'
-    }
-  }
+  components: { Main },
 }
 </script>
 

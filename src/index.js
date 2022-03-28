@@ -1,5 +1,10 @@
-import { createApp } from 'vue'
+import Vue from 'vue'
 import App from './App.vue'
+import store from './store'
+import vuetify from './plugins/vuetify'
 
-const app = createApp(App)
-app.mount('#app')
+new Vue({
+    store,
+    vuetify,
+    render: a => a(App)
+}).$mount('#app')
